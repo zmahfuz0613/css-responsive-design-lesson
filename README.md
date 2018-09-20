@@ -70,7 +70,6 @@ There is a really helpful tool in the Google Chrome developer tools:
 
 - Let's visit GA's homepage
 - Click on the device icon next to the magnifying glass
-- You can change the pixel width (displayed at the top) using the drag tool
 - You can select any device using the dropdown menu at the top
 
 
