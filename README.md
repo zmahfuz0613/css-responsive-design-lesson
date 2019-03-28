@@ -174,6 +174,10 @@ Since mobile has the most limitations (e.g. screen size and bandwidth), designin
 
 Mobile first is additive.
 
+##### Codepen Example
+
+Use [this codepen](https://codepen.io/celestelayne/pen/LaKwEa) as a boilerplate to set up a mobile-first website.
+
 ## Using media queries in a mobile first approach - Codealong (25 mins)
 
 When using a mobile-first approach you only need one media-query. This is the syntax:
