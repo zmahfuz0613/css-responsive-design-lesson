@@ -132,7 +132,6 @@ body {
 
 ```
 
-
 ## Media Queries and Mobile First Design
 
 In order to have your content fit the screens of different devices automatically, we need to use media-queries. Media queries are conditional style rules for the size of the browser/device rendering the site. Let's look at an example.
@@ -165,6 +164,39 @@ p {
 Now all p tags will be red until the screen size reaches 600px, when they'll turn blue. How do we determine the pixel width to use in the media query?
 
 > [CSS-Tricks](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/) is a good resource for reading up and refreshing yourself on media-queries.
+
+#### Breakpoints
+
+CSS breakpoints are points where the website content responds according to the device width, allowing you to show the best possible layout to the user.
+
+The ideal option for deciding breakpoints is based on the content of your site. This method allows you to simply add breakpoints where your content needs layout adjustment. This will make your media query a lot simpler and manageable.
+
+This breakpoint means the CSS will apply when the device width is 768px and above.
+
+```css
+@media (min-width: 768px){
+ ...
+}
+```
+
+#### When to use min-width or max-width
+
+If you are designing your layout with a mobile-first approach, then use `min-width` breakpoints and work your way up.
+
+Likewise, if you are designing for larger devices first, then set your default CSS as you normally would and adjust for smaller devices with the `max-width` approach.
+
+#### Viewport Meta Tag
+
+Mobile devices are clever: they pretend they have a width of 960px and scale the website.  We need to override this default behavior and force the mobile to respond to our media queries.
+
+Put the following code into our header.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+This ensures that the viewport is the same as the screen, and displays at a natural zoom of 100%.
+
+If you don't include this tag, the browser gets to choose the default viewport width and will not adhere to the correct media query style rules. In other words, a mobile browser might set its viewport width to `1080px` and display the layout meant for a screen that size.
 
 ## Mobile First = Content First
 
@@ -235,19 +267,6 @@ http://10.0.1.85:8000
 ```
 
 and you should see your awesome website.
-
-#### Viewport Meta Tag
-
-Mobile devices are clever: they pretend they have a width of 960px and scale the website.  We need to override this default behavior and force the mobile to respond to our media queries.
-
-Put the following code into our header.
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-```
-This ensures that the viewport is the same as the screen, and displays at a natural zoom of 100%.
-
-If you don't include this tag, the browser gets to choose the default viewport width and will not adhere to the correct media query style rules. In other words, a mobile browser might set its viewport width to `1080px` and display the layout meant for a screen that size.
 
 ## Demo / Codealong: Responsive Design
 
