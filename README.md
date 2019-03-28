@@ -21,30 +21,18 @@ competencies: Front-end intro
 
 - Write basic HTML/CSS
 
-## What is responsive design? Intro (10 mins)
+## Introduction: Responsive Design
 
 "Responsive Design" is the strategy of making a site that "responds" to the browser and device that it is being shown on... by looking awesome no matter what.
 
-Or, the dryer Wikipedia definition:
+#### Responsive Design is _not_ Device-Specific
 
-"Responsive web design (RWD) is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from mobile phones to desktop computer monitors).""
-
-#### More devices
-
-Not that long ago, building a successful online presence meant just ensuring that your website worked correctly in all the major desktop browsers.
-
-Fast forward to today, and the desktop computer is dying, more than 71% of the US population own a smartphone:
-
-- **195 million** tablet devices were sold in 2013.
-- The number of active mobile devices and human beings crossed over somewhere around the [7.19 billion mark](http://www.independent.co.uk/life-style/gadgets-and-tech/news/there-are-officially-more-mobile-devices-than-people-in-the-world-9780518.html).
-- New devices like iWatches are changing the game too
-- "Having a mobile friendly website is no longer just important, it’s critical.", [Forbes Ecommerce Marketing Checklist for 2013](http://www.forbes.com/sites/brentgleeson/2013/03/14/ecommerce-marketing-checklist-for-2013/)
-
+A responsive site doesn't just look good on the newest phone, watch, tablet, or mega-screen; it looks good on any screen. This might seem impossible, but it's relatively straightforward. All that's required is writing a series of rules, known as media queries, that check the size of the browser/device on which the site is being viewed, and adjust the CSS as needed.
 
 
 ## How to do Responsive Design wrong - Demo (10 mins)
 
-If you're not planning before you begin to create a responsive design, you'r doing it wrong. Changing a web platform to a mobile platform is much more difficult than going from mobile to web.
+If you're not planning before you begin to create a responsive design, you're doing it wrong. Changing a web platform to a mobile platform is much more difficult than going from mobile to web.
 
 #### Examples of non-responsive sites:
 
@@ -147,25 +135,36 @@ body {
 
 ## Media Queries and Mobile First Design
 
-In order to have your content fit the screens of different devices automatically, we need to use media-queries.
+In order to have your content fit the screens of different devices automatically, we need to use media-queries. Media queries are conditional style rules for the size of the browser/device rendering the site. Let's look at an example.
 
-What the heck is a media query? From [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries):
-
-"A media query consists of a media type and at least one expression that limits the style sheets' scope by using media features, such as width, height, and color."
-
-As there are lots of different devices, there can be lots of different media-queries.
-
-- [CSS-Tricks](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/) is a good resource for reading up and refreshing yourself on media-queries.
+We already know that if we do something like this:
 
 ```css
-/* This applies from 600px onwards --> DESKTOP */
-@media (min-width: 600px) {
-    html,
-    body {
-      background: azure;
-    }
+p {
+  color: red;
+}
+
+p.blue_text {
+  color: blue;
 }
 ```
+By default, all p tags will have red text – unless they have the class blue_text, in which case the text will be blue. We can do a similar thing with media queries.
+
+```css
+p {
+  color: blue;
+}
+
+@media screen and (min-width: 600px) {
+  p {
+    color: red;
+  }
+}
+```
+
+Now all p tags will be red until the screen size reaches 600px, when they'll turn blue. How do we determine the pixel width to use in the media query?
+
+> [CSS-Tricks](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/) is a good resource for reading up and refreshing yourself on media-queries.
 
 ## Mobile First = Content First
 
@@ -233,21 +232,89 @@ http://10.0.1.85:8000
 
 and you should see your awesome website.
 
-#### Meta viewport
+#### Viewport Meta Tag
 
-Well, it will probably look like it does on your desktop.
-
-Mobile devices are clever: they pretend they have a width of 960px and scale the website.  We need to override this and force the mobile to respond to our media queries.
+Mobile devices are clever: they pretend they have a width of 960px and scale the website.  We need to override this default behavior and force the mobile to respond to our media queries.
 
 Put the following code into our header.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
+This ensures that the viewport is the same as the screen, and displays at a natural zoom of 100%.
 
-Now, recheck to see your awesome, responsive website!
+If you don't include this tag, the browser gets to choose the default viewport width and will not adhere to the correct media query style rules. In other words, a mobile browser might set its viewport width to `1080px` and display the layout meant for a screen that size.
 
-##Conclusion (5 mins)
+## Demo / Codealong: Responsive Design
+
+So how can we make more impactful changes to our site using media queries? The flexbox approach to layout eliminated the need to use media queries to adjust the grid on your page. But what if you're working on a project with existing code using float? And what about adjusting other elements on the page using media queries? It's important to understand all methods when approaching responsive design.
+
+Consider this [HTML](codealong/albums/index.html) and [CSS](codealong/albums/main-1.css), which renders like this on a large screen:
+
+![albums-1](assets/albums-1.png)
+
+And like this on a small screen:
+
+![albums-1-400](assets/albums-1-400.png)
+
+The issues with the layout in the smaller screen rendering are evident, from the top of the page to the bottom:
+- The `nav` takes up too much vertical space.
+- The title and description are too large.
+- The 6-column layout is too narrow for the content.
+
+It's important that we work "big to small" – meaning we address the large layout concerns first, then work through the details of adjusting sizing. We also have to keep in mind that there may be some breakpoints in between a common desktop size and a common mobile size. For now, let's work on adding styles for a small screen size at `400px`.
+
+One way to approach media queries is to start by adding in styles you want for the smaller size *at the end of your CSS document*. These styles will overwrite the rules above! Compare this [new CSS](codealong/albums/main-2.css) to the [previous CSS](codealong/albums/main-1.css) and see how it renders on a large screen:
+
+![albums-2](assets/albums-2.png)
+
+All content on the page is aligned in a single column, whether viewed on a small or large screen width. Now we need to specify **at which width** we want these styles to be applied. We can do this by adding in media queries to our [updated CSS](codealong/albums/main-3.css).
+
+Here are the four different layouts as we reduce the screen size:
+
+![albums-1](assets/albums-1.png)
+
+![albums-3-med](assets/albums-3-med.png)
+
+![albums-3-sm](assets/albums-3-sm.png)
+
+![albums-3-xs](assets/albums-3-xs.png)
+
+Now our layout looks great on all screen sizes! The final touch is to adjust the copy on the page. Here's the [final CSS](codealong/albums/main-4.css) and how it renders on a small screen:
+
+![albums-4](assets/albums-4.png)
+
+You can access all of the code [here](codealong/albums).
+
+## Independent Practice: Dream Team
+
+Take a look at the following mockup.
+
+Choose a Dream Team of 3-4 fellow students and work together to wireframe out what the site should look like when it's responsive.
+
+Start by wireframing a mobile version of the site. If you have time, wireframe a tablet version of the site.
+
+As you wireframe, it may be helpful to consider the following questions:
+
+- Is there any content that might not be necessary to display on smaller devices?
+- What content needs to be visible?
+ - For example, is it necessary to show the entire nav if there are other ways of getting to navigation?
+- Identify any extra styling.
+ - Can we simplify some of the styles a bit for smaller devices, while still maintaining the same look and feel for the site?
+
+Have each group present their wireframes and describe why they made the choices they did.
+
+Dream Team Basic
+
+![Dream Team Basic](assets/dream-team-basic.png)
+
+Dream Team Challenge
+
+![Dream Team Challenge](assets/dream-team-challenge.png)
+
+Finish early? Start adding [media queries](independent-practice/starter-code) to the code to realize your wireframe. You can check your work later with the [solution code](independent-practice/solution-code).
+
+## Conclusion
 
 As noted earlier in the lesson, since mobile is increasingly becoming the user default, any project should consider mobile styling from the start.  
 
@@ -260,3 +327,25 @@ Though we won't cover this explicitly in this lesson, consider this while your b
 - Describe media queries.
 - Identify the different tools you can use to practice responsive design.
 - What are the steps to ensure mobile devises are using media queries when loading your web app?
+
+## Additional Resources
+
+### Exercises
+- [Make the Dream Team Responsive!](independent-practice/starter-code)
+  - [Check Your Work](independent-practice/solution-code)
+
+### Videos
+- [CSS Responsive Design](https://www.youtube.com/watch?v=BsuCBmzLf_U&list=PLdnONIhPScST0Vy4LrIZiYKpFNoxgyH7J&index=21)
+- [CSS Responsive Design - Media Queries](https://www.youtube.com/watch?v=GYygtVolViM&list=PLdnONIhPScST0Vy4LrIZiYKpFNoxgyH7J&index=23)
+- [CSS Mobile First - min/max-width/height](https://www.youtube.com/watch?v=iQIj7Lu64M4&index=22&list=PLdnONIhPScST0Vy4LrIZiYKpFNoxgyH7J)
+
+### Readings
+- [Responsive Web Design - An Original Introduction](http://alistapart.com/article/responsive-web-design)
+- [Why You Don't Need Device Specific Breakpoints](https://responsivedesign.is/articles/why-you-dont-need-device-specific-breakpoints)
+- [7 Habits of Highly Effective Media Queries](http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/)
+- [Media Queries for Standard Devices](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
+- [Logical Operators in Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Logical_operators)
+- [A Tale of Two Viewports](http://www.quirksmode.org/mobile/viewports.html)
+- [Responsive Design Pattern Examples](https://bradfrost.github.io/this-is-responsive/patterns.html)
+- [Complex Navigation Patterns for Responsive Design](http://bradfrost.com/blog/web/complex-navigation-patterns-for-responsive-design/)
+- [mediaqueri.es - a collection of responsive site examples](http://mediaqueri.es/)
