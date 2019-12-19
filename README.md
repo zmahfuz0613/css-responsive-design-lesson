@@ -272,7 +272,7 @@ and you should see your awesome website.
 
 So how can we make more impactful changes to our site using media queries? The flexbox approach to layout eliminated the need to use media queries to adjust the grid on your page. But what if you're working on a project with existing code using float? And what about adjusting other elements on the page using media queries? It's important to understand all methods when approaching responsive design.
 
-Consider this [HTML](codealong/albums/index.html) and [CSS](codealong/albums/main-1.css), which renders like this on a large screen:
+Consider this [HTML](codealong/albums/index.html) and [CSS](codealong/albums/css/main-1.css), which renders like this on a large screen:
 
 ![albums-1](assets/albums-1.png)
 
@@ -287,7 +287,7 @@ The issues with the layout in the smaller screen rendering are evident, from the
 
 It's important that we work "big to small" – meaning we address the large layout concerns first, then work through the details of adjusting sizing. We also have to keep in mind that there may be some breakpoints in between a common desktop size and a common mobile size. For now, let's work on adding styles for a small screen size at `400px`.
 
-One way to approach media queries is to start by adding in styles you want for the smaller size *at the end of your CSS document*. These styles will overwrite the rules above! Compare this [new CSS](codealong/albums/main-2.css) to the [previous CSS](codealong/albums/main-1.css) and see how it renders on a large screen:
+One way to approach media queries is to start by adding in styles you want for the smaller size *at the end of your CSS document*. These styles will overwrite the rules above! Compare this [new CSS](codealong/albums/main-2.css) to the [previous CSS](codealong/albums/css/main-1.css) and see how it renders on a large screen:
 
 ![albums-2](assets/albums-2.png)
 
