@@ -1,12 +1,4 @@
----
-title: Responsive design
-type: lesson
-duration: "1:25"
-creator:
-    name: Tony Guererro
-    city: LA
-competencies: Front-end intro
----
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)  SOFTWARE ENGINEERING IMMERSIVE
 
 # Responsive design
 
@@ -233,40 +225,6 @@ body {
   }
 }
 ```
-
-## On your phone - Codealong (10 mins)
-
-Well if we want to check out the site, we'd have to upload the file to a web server; but this will be a pain, so let's run a little server from our computers and check out our site on our phones.
-
-Run the following in the folder where you saved your index.html  
-
-```bash
-python -m SimpleHTTPServer  
-```
-
-To check it out on your computer go to:
-
-```
-http://0.0.0.0:8000
-```
-
-Great you are running a simple web server!
-
-If your computer and phone share the same WiFi network, you can check out the site on your phone.  First, we need the ip address of our computer.
-
-Type in `ifconfig` in the terminal. There should be something like:
-
-```bash
-inet 10.0.1.85
-```
-
-On your phone if you goto:
-
-```
-http://10.0.1.85:8000
-```
-
-and you should see your awesome website.
 
 ## Demo / Codealong: Responsive Design
 
