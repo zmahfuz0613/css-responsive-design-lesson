@@ -93,7 +93,7 @@ If you don't include this tag, the browser gets to choose the default viewport w
 
 ## Mobile First = Content First
 
-The mobile-first approach is exactly as it sounds: designing for the smallest screen and working your way up. The key to a mobile-first approach is a content centered one.
+The mobile-first approach is exactly as it sounds: designing for the smallest screen and working your way up. The key to a mobile-first approach is to center content as a priority.
 
 Since mobile has the most limitations (e.g. screen size and bandwidth), designing within these parameters in mind forces you to prioritize content ruthlessly.
 
