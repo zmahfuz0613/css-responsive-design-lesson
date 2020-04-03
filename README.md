@@ -57,7 +57,7 @@ There is a really helpful tool in the Google Chrome developer tools:
 
 Download the [starter-code](starter-code)
 
-Now open everything in Sublime Text and add the contents of a [reset.css](http://cssreset.com/) to the reset stylesheet.
+Now open everything in your text editor and add the contents of a [reset.css](http://cssreset.com/) to the reset stylesheet.
 
 #### Add some HTML
 
