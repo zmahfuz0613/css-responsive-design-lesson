@@ -99,7 +99,7 @@ Since mobile has the most limitations (e.g. screen size and bandwidth), designin
 
 Mobile first is additive.
 
-## Using media queries in a mobile first approach - Codealong (25 mins)
+## Using media queries in a mobile first approach
 
 When using a mobile-first approach you only need one media-query. This is the syntax:
 
@@ -123,7 +123,7 @@ body {
 }
 ```
 
-## Demo / Codealong: Responsive Design
+## Demo: Responsive Design
 
 So how can we make more impactful changes to our site using media queries? The flexbox approach to layout eliminated the need to use media queries to adjust the grid on your page. But what if you're working on a project with existing code using float? And what about adjusting other elements on the page using media queries? It's important to understand all methods when approaching responsive design.
 
