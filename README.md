@@ -53,109 +53,10 @@ There is a really helpful tool in the Google Chrome developer tools:
 - You can select any device using the dropdown menu at the top
 
 
-## Make a responsive website - Codealong (15 mins)
-
-Download the [starter-code](starter-code)
-
-Now open everything in your text editor and add the contents of a [reset.css](http://cssreset.com/) to the reset stylesheet.
-
-#### Add some HTML
-
-Now let's add some html into the index.html file:
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Mobile-First Responsive Design</title>
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="./js/app.js"></script>
-  <link rel="stylesheet" type="text/css" href="./stylesheets/reset.css">
-  <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
-</head>
-<body>
-<header>
-  <div class="filler">Header Content</div>
-</header>
-
-<section>
-  <article class="column">
-    <h2>Exciting content</h2>
-    <p>Web development is so fun...</p>
-  </article>
-  <article class="column">
-    <h2>More content</h2>
-    <p>Device testing is quite tedious...</p>
-  </article>
-  <article class="column">
-    <h2>Even more content</h2>
-    <p>But it has to be done now...</p>
-  </article>
-</section>
-<aside>
-  <div class="filler">Aside Content</div>
-</aside>
-<footer>
-  <div class="filler">Footer Content</div>
-</footer>
-</body>
-</html>
-```
-And then add some CSS:
-
-```css
-/*This applies from 0px to 600px --> MOBILE */
-*, *:before, *:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  background: darksalmon;
-  font-family: 'Roboto', sans-serif;
-  color: #141414;
-}
-
-```
 
 ## Media Queries and Mobile First Design
 
-In order to have your content fit the screens of different devices automatically, we need to use media-queries. Media queries are conditional style rules for the size of the browser/device rendering the site. Let's look at an example.
-
-We already know that if we do something like this:
-
-```css
-p {
-  color: red;
-}
-
-p.blue_text {
-  color: blue;
-}
-```
-By default, all p tags will have red text – unless they have the class blue_text, in which case the text will be blue. We can do a similar thing with media queries.
-
-```css
-p {
-  color: blue;
-}
-
-@media screen and (min-width: 600px) {
-  p {
-    color: red;
-  }
-}
-```
-
-Now all p tags will be red until the screen size reaches 600px, when they'll turn blue. How do we determine the pixel width to use in the media query?
-
-> [CSS-Tricks](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/) is a good resource for reading up and refreshing yourself on media-queries.
+In order to have your content fit the screens of different devices automatically, we need to use media-queries. Media queries are conditional style rules for the size of the browser/device rendering the site. 
 
 #### Breakpoints
 
@@ -197,10 +98,6 @@ The mobile-first approach is exactly as it sounds: designing for the smallest sc
 Since mobile has the most limitations (e.g. screen size and bandwidth), designing within these parameters in mind forces you to prioritize content ruthlessly.
 
 Mobile first is additive.
-
-##### Codepen Example
-
-Use [this codepen](https://codepen.io/celestelayne/pen/LaKwEa) as a boilerplate to set up a mobile-first website.
 
 ## Using media queries in a mobile first approach - Codealong (25 mins)
 
