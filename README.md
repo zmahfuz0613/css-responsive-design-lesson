@@ -30,7 +30,7 @@ If you're not planning before you begin to create a responsive design, you're do
 
 It is becoming harder and harder to find non-responsive websites.
 
-- [Space Jam](https://www.warnerbros.com/archive/spacejam/movie/jam.htm)
+- [Space Jam](https://www.spacejam.com/)
 
 > Note: Have students find examples of non-responsive sites.
 
